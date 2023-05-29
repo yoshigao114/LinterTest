@@ -1,3 +1,5 @@
+root = true
+
 [*.{cs,vb}]
 
 # Define the 'private_fields' symbol group:
