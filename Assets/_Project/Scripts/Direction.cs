@@ -6,7 +6,7 @@ namespace InfallibleCode
 {
     public class Direction
     {
-        private string Test;
+        private string _test;
 
         public readonly Vector3 Vector;
         
