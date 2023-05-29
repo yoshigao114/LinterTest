@@ -6,6 +6,8 @@ namespace InfallibleCode
 {
     public class Direction
     {
+        private string Test;
+
         public readonly Vector3 Vector;
         
         public bool IsFacingLeft => Vector.x < 0;
