@@ -17,13 +17,9 @@ namespace InfallibleCode
         public void Move(Direction direction)
         {
             if (_isMoving) return;
-
             _isMoving = true;
-
             UpdateSprite(direction);
-
             var destination = transform.position + direction.Vector;
-            
             transform.DOJump(destination, JumpPower, 1, JumpDuration)
                 .OnComplete(() => _isMoving = false);
         }
