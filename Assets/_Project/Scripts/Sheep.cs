@@ -22,7 +22,7 @@ namespace InfallibleCode
 
             UpdateSprite(direction);
 
-            var destination = transform.position - direction.Vector;
+            var destination = transform.position + direction.Vector;
             
             transform.DOJump(destination, JumpPower, 1, JumpDuration)
                 .OnComplete(() => _isMoving = false);
