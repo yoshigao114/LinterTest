@@ -125,7 +125,7 @@
 *.otf lfs-file
 
 # Bundles and binaries
-*.dll lfs-file
+*.dll filter=lfs diff=lfs merge=lfs -text
 *.exe lfs-file
 *.mdb lfs-file
 *.pdb lfs-file
