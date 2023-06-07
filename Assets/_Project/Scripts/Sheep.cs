@@ -6,6 +6,7 @@ namespace InfallibleCode
 {
     public class Sheep : MonoBehaviour
     {
+        private string test123;
         public const float JumpPower = 0.75f;
         public const float JumpDuration = 0.33f;
 
