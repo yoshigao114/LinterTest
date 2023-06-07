@@ -18,5 +18,4 @@ jobs:
       - name: Run dotnet format
         uses: xt0rted/dotnet-format@v1.2.0
         with:
-          version: 5.1.225507
           only-changed-files: "true"
