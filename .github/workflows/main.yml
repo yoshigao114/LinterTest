@@ -1,8 +1,8 @@
 name: Actions
 
-on:
-  pull_request:
-    branches: [master, main, develop]
+#on:
+#  pull_request:
+#    branches: [master, main, develop]
 
 jobs:
   build:
