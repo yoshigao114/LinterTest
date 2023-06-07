@@ -4,23 +4,19 @@ on:
     branches: [master, main, develop]
 jobs:
   dotnet-format:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
-      - name: Setup .NET Core
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: '7.0.x'
-
       - name: Checkout repo
         uses: actions/checkout@v3
-        with:
-          ref: ${{ github.head_ref }}
+
+      - name: Add dotnet-format problem matcher
+        uses: xt0rted/dotnet-format-problem-matcher@v1
+
+      - name: Restore dotnet tools
+        uses: xt0rted/dotnet-tool-restore@v1
 
       - name: Run dotnet format
-        id: format
-        uses: eero-dev/dotnet-format@d3f2aef1dee3a6e6ed48183722e118ec24635a67
+        uses: xt0rted/dotnet-format@v1.2.0
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          include: Assets/_Project/Scripts/*.cs
-          fix-style-level: info
-          only-changed-files: true
+          version: 5.1.225507
+          only-changed-files: "true"
