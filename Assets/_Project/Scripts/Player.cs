@@ -6,6 +6,7 @@ namespace InfallibleCode
     {
         private Sheep _sheep;
         private string test;
+        private const string test12345 = "Test";
         private void Awake()
         {
             _sheep = GetComponent<Sheep>();
