@@ -3,20 +3,24 @@ on:
  pull_request:
     branches: [master, main, develop]
 jobs:
-  check-format:
+  dotnet-format:
     runs-on: windows-latest
-
     steps:
       - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '8.x'
+          dotnet-version: '7.0.x'
 
-      - name: Install dotnet-format tool
-        run: dotnet tool install -g dotnet-format --version "8.*" --add-source https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet8/nuget/v3/index.json
-
-      - name: Check out code
-        uses: actions/checkout@v2
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
 
       - name: Run dotnet format
-        run: dotnet format style --include Assets/_Project/Scripts/*.cs --folder --verify-no-changes --verbosity diagnostic
+        id: format
+        uses: eero-dev/dotnet-format@d3f2aef1dee3a6e6ed48183722e118ec24635a67
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          include: Assets/_Project/Scripts/*.cs
+          fix-style-level: info
+          only-changed-files: true
