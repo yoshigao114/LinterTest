@@ -7,6 +7,7 @@ namespace InfallibleCode
         private Sheep _sheep;
         private string test;
         private string test2;
+        public string test3;
         private const string test12345 = "Test";
         private void Awake()
         {
