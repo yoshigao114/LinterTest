@@ -3,19 +3,37 @@ on:
  pull_request:
     branches: [master, main, develop]
 jobs:
-  dotnet-format:
-    runs-on: ubuntu-latest
+  check-format:
+    runs-on: windows-latest
+
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.0.x'
 
-      - name: Add dotnet-format problem matcher
-        uses: xt0rted/dotnet-format-problem-matcher@v1
+      - name: Install dotnet-format tool
+        run: dotnet tool install -g dotnet-format
 
-      - name: Restore dotnet tools
-        uses: xt0rted/dotnet-tool-restore@v1
+      - name: Check out code
+        uses: actions/checkout@v2
 
       - name: Run dotnet format
-        uses: xt0rted/dotnet-format@v1.2.0
-        with:
-          only-changed-files: "true"
+        run: dotnet format style --include Assets/_Project/Scripts/*.cs --check --verbosity diagnostic
+#jobs:
+#  dotnet-format:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout repo
+#        uses: actions/checkout@v3
+#
+#      - name: Add dotnet-format problem matcher
+#        uses: xt0rted/dotnet-format-problem-matcher@v1
+#
+#      - name: Restore dotnet tools
+#        uses: xt0rted/dotnet-tool-restore@v1
+#
+#      - name: Run dotnet format
+#        uses: xt0rted/dotnet-format@v1.2.0
+#        with:
+#          only-changed-files: "true"
