@@ -20,7 +20,7 @@ jobs:
 
       - name: Run dotnet format
         #run: dotnet format style '/LinterTest.sln' --include Assets/_Project/Scripts/*.cs --verbosity diagnostic --severity error 
-        run: dotnet format '/LinterTest.sln' --fix-style error --include Assets/_Project/Scripts/*.cs --verbosity diagnostic --check 
+        run: dotnet format '.\' --fix-style error --include Assets/_Project/Scripts/*.cs --verbosity diagnostic --check 
         #run: dotnet format '.\' --folder --check --verbosity diagnostic
 #jobs:
 #  check-format:
