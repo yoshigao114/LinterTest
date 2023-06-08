@@ -5,12 +5,15 @@ namespace InfallibleCode
     public class Player : MonoBehaviour
     {
         private Sheep _sheep;
-
+        private string test;
         private void Awake()
         {
             _sheep = GetComponent<Sheep>();
         }
+        private void test()
+        { 
         
+        }
         private void Update()
         {
             var moveVector = Vector2.zero;
