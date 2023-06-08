@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run dotnet format
-        run: dotnet format style '.\' --include Assets/_Project/Scripts/*.cs --check --verbosity diagnostic
+        run: dotnet format style '.\' --include Assets/_Project/Scripts/*.cs --no-restore --check --verbosity diagnostic
 #jobs:
 #  dotnet-format:
 #    runs-on: ubuntu-latest
