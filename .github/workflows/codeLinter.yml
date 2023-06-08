@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run dotnet format
-        run: dotnet format 'LinterTest.sln' --no-restore --verify-no-changes
+        run: dotnet format style 'LinterTest.sln' --include Assets/_Project/Scripts/*.cs --verbosity diagnostic --severity error --no-restore --verify-no-changes
         #run: dotnet format '.\' --fix-style error --include Assets/_Project/Scripts/*.cs --folder --no-restore --verbosity diagnostic --check 
         #run: dotnet format '.\' --folder --check --verbosity diagnostic
 #jobs:
